@@ -5,6 +5,7 @@ public class SensorData
 {
     public static void main(String[] args)
     {
+        //declare properties
         String line = "";
         String delim = ",";
 
