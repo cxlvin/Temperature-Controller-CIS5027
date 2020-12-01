@@ -1,23 +1,39 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+
+
 public class SensorData
 {
+
+    String id;
+    String lightLevel;
+    String temperature;
+
+
     public static void main(String[] args)
     {
+    SensorData mySens = new SensorData();
+
+
         //declare properties
         String line = "";
         String delim = ",";
 
         try
         {
-            //parsing a CSV file into BufferedReader class constructor
+            //parsing CSV file into BufferedReader
             BufferedReader br = new BufferedReader(new FileReader("sensor_data.csv"));
             while ((line = br.readLine()) != null)   //returns a Boolean value
             {
-
                 String[] tempData = line.split(delim);    // use comma as separator
-                System.out.println("ID " + tempData[0] + ", Light level=" + tempData[7] + ", Temperature=" + tempData[9]);
+
+                mySens.id = tempData[0];
+                mySens.lightLevel = tempData[7];
+                mySens.temperature = tempData[9];
+
+                //concatenates & prints index holding ID, light level and temperature level
+                System.out.println("ID: " + mySens.id + " | " + "Light level: " + mySens.lightLevel + " | " + "Temperature: " + mySens.temperature);
             }
         }
         catch (IOException e)
