@@ -26,13 +26,13 @@ public class SensorData
             BufferedReader br = new BufferedReader(new FileReader("sensor_data.csv"));
             while ((line = br.readLine()) != null)   //returns a Boolean value
             {
-                String[] tempData = line.split(delim);    // use comma as separator
+                String[] tempData = line.split(delim);    // uses comma as separator
 
                 mySens.id = tempData[0];
                 mySens.lightLevel = tempData[7];
                 mySens.temperature = tempData[9];
 
-                //concatenates & prints index holding ID, light level and temperature level
+                //concatenates & prints object holding ID, light level and temperature level
                 System.out.println("ID: " + mySens.id + " | " + "Light level: " + mySens.lightLevel + " | " + "Temperature: " + mySens.temperature);
             }
         }
