@@ -42,6 +42,7 @@ public class SensorData
         // declare properties
         String line = "";
         String delim = ",";
+        int iteration = 0;
 
 
         // parse CSV file
@@ -50,6 +51,11 @@ public class SensorData
             BufferedReader br = new BufferedReader(new FileReader(filename));
             while ((line = br.readLine()) != null)   //returns a Boolean value
             {
+                // skips first row
+                if (iteration == 0) {
+                    iteration++;
+                    continue;
+                }
                 String[] tempData = line.split(delim);    // uses comma as separator
 
                 mySens.id = tempData[0];
